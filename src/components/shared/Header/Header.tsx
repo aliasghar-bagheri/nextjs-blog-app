@@ -24,8 +24,12 @@ export default function Header() {
         </Link>
 
         <div className="flex items-center gap-x-2">
-          <Button>ورود</Button>
-          <Button variant="primary">ثبت نام</Button>
+          <Link href="/auth/sign-in">
+            <Button>ورود</Button>
+          </Link>
+          <Link href="/auth/sign-up">
+            <Button variant="primary">ثبت نام</Button>
+          </Link>
         </div>
       </div>
     </header>
