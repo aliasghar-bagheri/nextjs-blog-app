@@ -1,7 +1,9 @@
+import Hero from '@/components/shared/Hero/Hero';
+
 export default function Home() {
   return (
     <>
-      <h1>صفحه ی اصلی</h1>
+      <Hero />
     </>
   );
 }
