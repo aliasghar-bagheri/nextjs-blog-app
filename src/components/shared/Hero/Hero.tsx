@@ -1,4 +1,6 @@
 import Button from '@/components/ui/Button';
+import PostSlider from '@/components/ui/PostSlider';
+import { postSliderSampleData } from '@/constants';
 
 export default function Hero() {
   return (
@@ -17,6 +19,7 @@ export default function Hero() {
           <Button variant="primary">مشاهده همه</Button>
         </div>
       </div>
+      <PostSlider posts={postSliderSampleData} />
     </div>
   );
 }
