@@ -3,6 +3,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import '@/styles/globals.css';
 import { vazirFont } from '@/constants/font';
+import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,7 +20,10 @@ export default function RootLayout({
       lang="fa"
       dir="rtl"
     >
-      <body className={`${vazirFont.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${vazirFont.variable} font-sans antialiased`}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
