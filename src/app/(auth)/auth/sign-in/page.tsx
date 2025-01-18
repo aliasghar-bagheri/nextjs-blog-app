@@ -3,6 +3,7 @@
 import Button from '@/components/ui/Button';
 import RHFTextField from '@/components/ui/RHFTextField';
 import SpinnerMini from '@/components/ui/SpinnerMini';
+import { useAuth } from '@/context/AuthContext';
 import { signInSchema, SignInSchemaType } from '@/lib/validations/user/user.schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
@@ -10,6 +11,8 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
 export default function SignInPage() {
+  const { signIn } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -20,7 +23,7 @@ export default function SignInPage() {
   });
 
   const handleSignInForm = async (values: SignInSchemaType) => {
-    console.log(values);
+    await signIn(values);
   };
 
   return (
