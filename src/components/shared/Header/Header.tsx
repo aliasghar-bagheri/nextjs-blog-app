@@ -1,10 +1,21 @@
+'use client';
+
+import Avatar from '@/components/ui/Avatar';
 import Button from '@/components/ui/Button';
+import { useAuth } from '@/context/AuthContext';
+import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
+  const { isPending, isAuthenticated, user } = useAuth();
+
   return (
-    <header className="w-full py-6">
+    <header
+      className={clsx('w-full py-6 transition-all duration-300', {
+        'blur-md': isPending,
+      })}
+    >
       <div className="container flex items-center justify-between">
         <Link
           href="/"
@@ -23,14 +34,23 @@ export default function Header() {
           </p>
         </Link>
 
-        <div className="flex items-center gap-x-2">
-          <Link href="/auth/sign-in">
-            <Button>ورود</Button>
+        {isAuthenticated && user?._id ? (
+          <Link href="/profile">
+            <Avatar
+              src={user.avatar || '/assets/images/user-placeholder.svg'}
+              alt={user.name}
+            />
           </Link>
-          <Link href="/auth/sign-up">
-            <Button variant="primary">ثبت نام</Button>
-          </Link>
-        </div>
+        ) : (
+          <div className="flex items-center gap-x-2">
+            <Link href="/auth/sign-in">
+              <Button>ورود</Button>
+            </Link>
+            <Link href="/auth/sign-up">
+              <Button variant="primary">ثبت نام</Button>
+            </Link>
+          </div>
+        )}
       </div>
     </header>
   );
