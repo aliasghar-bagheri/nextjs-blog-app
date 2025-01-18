@@ -1,31 +1,13 @@
-'use client';
-
-import Button from '@/components/ui/Button';
-import RHFTextField from '@/components/ui/RHFTextField';
-import SpinnerMini from '@/components/ui/SpinnerMini';
-import { useAuth } from '@/context/AuthContext';
-import { signInSchema, SignInSchemaType } from '@/lib/validations/user/user.schema';
-import { zodResolver } from '@hookform/resolvers/zod';
+import SignInForm from '@/app/(auth)/auth/_/forms/SignInForm';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useForm } from 'react-hook-form';
+
+export const metadata: Metadata = {
+  title: 'ورود',
+};
 
 export default function SignInPage() {
-  const { signIn } = useAuth();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid, isSubmitting },
-  } = useForm<SignInSchemaType>({
-    mode: 'onTouched',
-    resolver: zodResolver(signInSchema),
-  });
-
-  const handleSignInForm = async (values: SignInSchemaType) => {
-    await signIn(values);
-  };
-
   return (
     <div className="max-w-sm w-full rounded space-y-6 flex flex-col items-center">
       <Link
@@ -48,40 +30,7 @@ export default function SignInPage() {
         <h2 className="text-2xl font-semibold text-secondary-800">وارد حساب کاربری خود شوید</h2>
         <p className="mt-3 text-secondary-600">خوش آمدید! لطفا مشخصات خود را وارد کنید.</p>
       </div>
-      <fieldset
-        disabled={isSubmitting}
-        className="w-full"
-      >
-        <form
-          onSubmit={handleSubmit(handleSignInForm)}
-          className="w-full flex flex-col items-center space-y-5"
-        >
-          <RHFTextField
-            name="email"
-            type="email"
-            label="ایمیل"
-            register={register}
-            errors={errors}
-            isRequired
-          />
-
-          <RHFTextField
-            name="password"
-            type="password"
-            label="رمز عبور"
-            register={register}
-            errors={errors}
-            isRequired
-          />
-          <Button
-            disabled={!isValid || isSubmitting}
-            variant="primary"
-            fullWidth
-          >
-            {isSubmitting ? <SpinnerMini /> : 'ورود'}
-          </Button>
-        </form>
-      </fieldset>
+      <SignInForm />
       <p>
         حساب کاربری ندارید؟
         <Link
