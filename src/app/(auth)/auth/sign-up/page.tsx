@@ -7,9 +7,12 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
+import { useAuth } from '@/context/AuthContext';
 import SpinnerMini from '@/components/ui/SpinnerMini';
 
 export default function SignUpPage() {
+  const { signUp } = useAuth();
+
   const {
     register,
     handleSubmit,
@@ -20,7 +23,7 @@ export default function SignUpPage() {
   });
 
   const handleSignUpForm = async (values: SignUpSchemaType) => {
-    console.log(values);
+    await signUp(values);
   };
 
   return (
