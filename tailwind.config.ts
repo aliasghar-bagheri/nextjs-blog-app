@@ -31,6 +31,9 @@ const config: Config = {
           800: 'hsl(var(--secondary-800))',
           900: 'hsl(var(--secondary-900))',
         },
+        success: 'hsl(var(--success))',
+        warning: 'hsl(var(--warning))',
+        error: 'hsl(var(--error))',
       },
       fontFamily: {
         sans: ['var(--font-vazir)', ...fontFamily.sans],
