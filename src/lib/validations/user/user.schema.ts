@@ -14,11 +14,32 @@ const passwordSchema = z
     'رمز عبور باید شامل عدد, یک کارکتر بزرگ, و یک کارکتر کوچک باشد'
   );
 
+const signUpSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(4, { message: 'نام باید بیشتر از 3 کارکتر باشد' })
+
+    .refine((value) => !/^[0-9]+$/.test(value), {
+      message: 'نام نمیتواند فقط از اعداد تشکیل شده باشد',
+    }),
+  email: emailSchema,
+  password: passwordSchema,
+});
+
 const signInSchema = z.object({
   email: emailSchema,
   password: passwordSchema,
 });
 
+type SignUpSchemaType = z.infer<typeof signUpSchema>;
 type SignInSchemaType = z.infer<typeof signInSchema>;
 
-export { type SignInSchemaType, emailSchema, passwordSchema, signInSchema };
+export {
+  type SignUpSchemaType,
+  type SignInSchemaType,
+  emailSchema,
+  passwordSchema,
+  signUpSchema,
+  signInSchema,
+};
