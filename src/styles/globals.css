@@ -97,7 +97,7 @@
     @apply bg-primary-100 text-primary hover:bg-primary-100/70 dark:bg-primary-800 dark:text-primary-200 dark:hover:bg-primary-800/70;
   }
   .inputField {
-    @apply py-2 px-3 bg-secondary-200 max-w-sm placeholder:text-secondary-500 placeholder:text-sm rounded outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply py-2 px-3 bg-secondary-200 placeholder:text-secondary-500 placeholder:text-sm rounded outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed;
   }
   .spinner {
     @apply mt-14 mx-auto mb-6 w-14 aspect-square rounded-full border-4 border-secondary-200 border-r-primary animate-spin;
