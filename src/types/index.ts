@@ -81,3 +81,9 @@ export interface IComment {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface INewComment {
+  text: string;
+  parentId?: string | null;
+  postId: string;
+}
