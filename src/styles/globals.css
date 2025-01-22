@@ -136,6 +136,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .post-comment-answer {
+    @apply relative border-secondary-200 rtl:border-r-2 rtl:pr-4 ltr:border-l-2 ltr:pl-4;
+  }
+  .comment-answer-item {
+    @apply before:content-[''] before:absolute before:top-1/2 before:-translate-y-1/2 before:rtl:right-2 before:ltr:left-2 before:bg-secondary-100 before:w-5 before:h-5 before:rounded-full before:transform;
+  }
 }
 
 .skeleton-wave::after {
