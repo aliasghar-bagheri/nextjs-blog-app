@@ -23,6 +23,8 @@
     --primary-800: 238 70% 33%;
     --primary-900: 238 60% 23%;
 
+    --secondary-0: 0 0% 100%;
+    --secondary-50: 210 20% 98%;
     --secondary-100: 220 14% 96%;
     --secondary-200: 220 13% 91%;
     --secondary-300: 216 12% 84%;
@@ -52,6 +54,8 @@
     --primary-800: 238 70% 33%;
     --primary-900: 238 60% 23%;
 
+    --secondary-0: 217 32% 14%;
+    --secondary-50: 221 39% 11%;
     --secondary-100: 221 39% 11%;
     --secondary-200: 215 28% 17%;
     --secondary-300: 217 19% 27%;

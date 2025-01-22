@@ -21,6 +21,8 @@ const config: Config = {
           900: 'hsl(var(--primary-900))',
         },
         secondary: {
+          0: 'hsl(var(--secondary-0))',
+          50: 'hsl(var(--secondary-50))',
           100: 'hsl(var(--secondary-100))',
           200: 'hsl(var(--secondary-200))',
           300: 'hsl(var(--secondary-300))',
