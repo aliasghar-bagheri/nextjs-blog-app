@@ -29,3 +29,8 @@ export async function getPostBySlug(slug: string, options?: AxiosRequestConfig) 
     return { post: {} };
   }
 }
+
+// *********** Like post
+export async function likePostApi(postId: string) {
+  return http.post(`/post/like/${postId}`).then(({ data }) => data.data);
+}
