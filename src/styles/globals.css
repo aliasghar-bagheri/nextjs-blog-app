@@ -109,6 +109,24 @@
   .spinner-mini {
     @apply mx-auto w-6 aspect-square rounded-full border-2 border-primary-200 border-r-transparent animate-spin;
   }
+  .badge {
+    @apply inline-block text-sm md:text-base whitespace-nowrap rounded-xl px-2 py-0.5;
+  }
+  .badge-primary {
+    @apply bg-primary text-white;
+  }
+  .badge-secondary {
+    @apply bg-secondary-200 text-secondary-600;
+  }
+  .badge-success {
+    @apply bg-success text-white;
+  }
+  .badge-error {
+    @apply bg-error;
+  }
+  .badge-warning {
+    @apply bg-warning text-black/80;
+  }
 }
 body {
   font-family: var(--font-vazir);
