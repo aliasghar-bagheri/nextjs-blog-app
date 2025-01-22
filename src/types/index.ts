@@ -28,7 +28,7 @@ export type TPostAuthor = Pick<IUser, '_id' | 'name' | 'avatar' | 'avatarUrl'>;
 
 export type TPostRelated = Pick<
   IPost,
-  '_id' | 'title' | 'slug' | 'category' | 'coverImage' | 'coverImageUrl' | 'author'
+  '_id' | 'title' | 'slug' | 'category' | 'coverImage' | 'coverImageUrl' | 'author' | 'readingTime'
 >;
 
 export type TPostComment = {
