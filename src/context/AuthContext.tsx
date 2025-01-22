@@ -95,8 +95,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'PENDING' });
     try {
       const { user, message } = await signInApi(values);
-      console.log(user);
-
       dispatch({ type: 'SIGN_IN', payload: user });
       toast.success(message);
       router.push('/profile');
