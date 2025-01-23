@@ -6,3 +6,8 @@ import http from './httpService';
 export default async function createNewCommentApi(data: INewComment, options?: AxiosRequestConfig) {
   return await http.post('/comment/add', data, options).then(({ data }) => data.data);
 }
+
+// *********** Get all comments
+export async function getAllComments(options?: AxiosRequestConfig) {
+  return await http.get('/comment/list', options).then(({ data }) => data.data);
+}
