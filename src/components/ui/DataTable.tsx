@@ -37,7 +37,7 @@ const DataTable = <T,>({ className = '', columns, data }: DataTableProps<T>) => 
         ) : (
           <TableRow>
             <TableData
-              colSpan={7}
+              colSpan={columns.length}
               className="!text-center"
             >
               هیچ نتیجه ای یافت نشد
