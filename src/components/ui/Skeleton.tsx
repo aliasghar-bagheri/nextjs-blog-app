@@ -60,4 +60,15 @@ const SkeletonPostList = () => {
   );
 };
 
-export { Skeleton, SkeletonPostList };
+const SkeletonDashboardCards = () => {
+  return Array.from({ length: 3 }).map((_, index) => (
+    <Skeleton
+      key={index}
+      width="100%"
+      height={110}
+      className="bg-secondary-200 rounded"
+    />
+  ));
+};
+
+export { Skeleton, SkeletonPostList, SkeletonDashboardCards };
