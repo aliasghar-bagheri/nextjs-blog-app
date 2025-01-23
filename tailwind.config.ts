@@ -50,6 +50,15 @@ const config: Config = {
       borderRadius: {
         DEFAULT: 'var(--radius)',
       },
+      keyframes: {
+        fadeInRight: {
+          '0%': { opacity: '0', transform: 'translateX(200px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+      },
+      animation: {
+        'fade-in-right': 'fadeInRight 0.3s ease',
+      },
     },
   },
   plugins: [],
