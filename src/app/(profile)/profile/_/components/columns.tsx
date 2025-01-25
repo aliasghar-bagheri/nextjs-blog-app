@@ -54,6 +54,6 @@ export const latestPostsTableColumns: DataTableColumn<IPost>[] = [
       />
     ),
     key: 'createdAt',
-    render: () => <PostTableActions />,
+    render: (post) => <PostTableActions postId={post._id} />,
   },
 ];
