@@ -5,6 +5,7 @@ import '@/styles/globals.css';
 import { vazirFont } from '@/constants/font';
 import { AuthProvider } from '@/context/AuthContext';
 import { Toaster } from 'react-hot-toast';
+import { TanstackQueryProvider } from '@/lib/tanstack-query/config';
 
 export const metadata: Metadata = {
   title: {
@@ -26,10 +27,12 @@ export default function RootLayout({
       dir="rtl"
     >
       <body className={`${vazirFont.variable} font-sans antialiased`}>
-        <AuthProvider>
-          {children}
-          <Toaster />
-        </AuthProvider>
+        <TanstackQueryProvider>
+          <AuthProvider>
+            {children}
+            <Toaster />
+          </AuthProvider>
+        </TanstackQueryProvider>
       </body>
     </html>
   );
