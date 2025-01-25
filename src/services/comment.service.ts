@@ -28,3 +28,8 @@ export async function editCommentApi(
 ) {
   return http.patch(`/comment/update/${commentId}`, data, options).then(({ data }) => data.data);
 }
+
+// *********** Delete a comment
+export async function deleteCommentApi(commentId: string, options?: AxiosRequestConfig) {
+  return http.delete(`/comment/remove/${commentId}`, options).then(({ data }) => data.data);
+}
