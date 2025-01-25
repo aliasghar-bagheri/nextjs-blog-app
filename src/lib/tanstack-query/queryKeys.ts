@@ -1,4 +1,5 @@
 export enum QUERY_KEYS {
   GET_ALL_CATEGORIES = 'get_all_categories',
   CREATE_NEW_POST = 'create_new_post',
+  EDIT_POST = 'edit_post',
 }
