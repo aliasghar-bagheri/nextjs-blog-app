@@ -53,3 +53,9 @@ export async function likePostApi(postId: string) {
 export async function savePostApi(postId: string) {
   return http.post(`/post/bookmark/${postId}`).then(({ data }) => data.data);
 }
+
+// *********** Create new post
+export async function createNewPostApi(postData: FormData, options?: AxiosRequestConfig) {
+  return http.post('/post/create/', postData, options).then(({ data }) => data.data);
+}
+
