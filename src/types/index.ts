@@ -75,7 +75,7 @@ export interface IComment {
   content: {
     text: string;
   };
-  status: 1 | 2;
+  status: 0 | 1 | 2;
   openToComment: boolean;
   answers: IComment[];
   createdAt: string;
