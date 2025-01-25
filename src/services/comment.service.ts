@@ -20,3 +20,11 @@ export async function getAllComments(options?: AxiosRequestConfig) {
     return { comments: [], commentsCount: 0 };
   }
 }
+
+// *********** Edit a comment
+export async function editCommentApi(
+  { commentId, data }: { commentId: string; data: { status: string } },
+  options?: AxiosRequestConfig
+) {
+  return http.patch(`/comment/update/${commentId}`, data, options).then(({ data }) => data.data);
+}
