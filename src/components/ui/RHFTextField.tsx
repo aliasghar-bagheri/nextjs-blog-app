@@ -12,6 +12,7 @@ interface RHFTextFieldProps<T extends FieldValues> extends InputHTMLAttributes<H
   register: UseFormRegister<T>;
   label: string;
   name: Path<T>;
+  valueAsNumber?: boolean;
 }
 
 const RHFTextField = <T extends FieldValues>({
@@ -22,6 +23,7 @@ const RHFTextField = <T extends FieldValues>({
   errors,
   isRequired,
   className,
+  valueAsNumber,
   ...rest
 }: RHFTextFieldProps<T>) => {
   const hasError = errors[name]?.message;
@@ -37,7 +39,7 @@ const RHFTextField = <T extends FieldValues>({
           type={type}
           id={name}
           className={`textField block w-full border border-secondary-300 ${className}`}
-          {...register(name)}
+          {...register(name, { valueAsNumber })}
           {...rest}
         />
       ) : (
@@ -45,7 +47,7 @@ const RHFTextField = <T extends FieldValues>({
           type={type}
           id={name}
           className={`textField block w-full border border-secondary-300 ${className}`}
-          {...register(name)}
+          {...register(name, { valueAsNumber })}
           {...rest}
         />
       )}
