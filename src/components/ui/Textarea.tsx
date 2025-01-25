@@ -5,7 +5,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaHTMLAttributes<HTMLText
   ({ className, ...props }, ref) => {
     return (
       <textarea
-        className={clsx('inputField', className)}
+        className={clsx('inputField min-h-60', className)}
         ref={ref}
         {...props}
       />
