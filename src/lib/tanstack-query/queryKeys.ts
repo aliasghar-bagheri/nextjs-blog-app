@@ -4,4 +4,5 @@ export enum QUERY_KEYS {
   EDIT_POST = 'edit_post',
   DELETE_POST = 'delete_post',
   EDIT_COMMENT = 'edit_comment',
+  DELETE_COMMENT = 'delete_comment',
 }
