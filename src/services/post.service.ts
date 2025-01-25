@@ -59,3 +59,10 @@ export async function createNewPostApi(postData: FormData, options?: AxiosReques
   return http.post('/post/create/', postData, options).then(({ data }) => data.data);
 }
 
+// *********** Edit new post
+export async function editPostApi(
+  { postId, postData }: { postId: string; postData: FormData },
+  options?: AxiosRequestConfig
+) {
+  return http.patch(`/post/update/${postId}`, postData, options).then(({ data }) => data.data);
+}
