@@ -73,6 +73,6 @@ export const allPostsTableColumns: DataTableColumn<IPost>[] = [
       />
     ),
     key: 'createdAt',
-    render: (post) => <PostTableActions postId={post._id} />,
+    render: (post) => <PostTableActions post={post} />,
   },
 ];
