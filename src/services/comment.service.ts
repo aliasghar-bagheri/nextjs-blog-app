@@ -9,5 +9,14 @@ export default async function createNewCommentApi(data: INewComment, options?: A
 
 // *********** Get all comments
 export async function getAllComments(options?: AxiosRequestConfig) {
-  return await http.get('/comment/list', options).then(({ data }) => data.data);
+  try {
+    const { data } = await http.get('/comment/list', options);
+
+    const { comments, commentsCount } = data.data || {};
+
+    return { comments, commentsCount };
+  } catch (error) {
+    console.log(error);
+    return { comments: [], commentsCount: 0 };
+  }
 }
