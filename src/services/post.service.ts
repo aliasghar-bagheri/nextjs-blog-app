@@ -59,10 +59,15 @@ export async function createNewPostApi(postData: FormData, options?: AxiosReques
   return http.post('/post/create/', postData, options).then(({ data }) => data.data);
 }
 
-// *********** Edit new post
+// *********** Edit post
 export async function editPostApi(
   { postId, postData }: { postId: string; postData: FormData },
   options?: AxiosRequestConfig
 ) {
   return http.patch(`/post/update/${postId}`, postData, options).then(({ data }) => data.data);
+}
+
+// *********** Delete post
+export async function deletePostApi(postId: string, options?: AxiosRequestConfig) {
+  return http.delete(`/post/remove/${postId}`, options).then(({ data }) => data.data);
 }
