@@ -1,7 +1,10 @@
-import { ChatBubbleBottomCenterTextIcon } from '@heroicons/react/24/outline';
-import { RectangleGroupIcon } from '@heroicons/react/24/outline';
-import { DocumentTextIcon } from '@heroicons/react/24/outline';
-import { Squares2X2Icon } from '@heroicons/react/24/outline';
+import {
+  ChatBubbleBottomCenterTextIcon,
+  Cog8ToothIcon,
+  RectangleGroupIcon,
+  DocumentTextIcon,
+  Squares2X2Icon,
+} from '@heroicons/react/24/outline';
 
 export const sidebarLinks = [
   {
@@ -23,5 +26,10 @@ export const sidebarLinks = [
     label: 'دسته بندی ها',
     href: '/profile/categories',
     icon: RectangleGroupIcon,
+  },
+  {
+    label: 'تنظیمات پروفایل',
+    href: '/profile/settings',
+    icon: Cog8ToothIcon,
   },
 ];
