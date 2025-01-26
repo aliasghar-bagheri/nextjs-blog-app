@@ -1,9 +1,9 @@
-import Hero from '@/components/shared/Hero/Hero';
+import HeroSection from '@/components/shared/Hero/HeroSection';
 
 export default function Home() {
   return (
-    <>
-      <Hero />
-    </>
+    <div className="space-y-10">
+      <HeroSection />
+    </div>
   );
 }
