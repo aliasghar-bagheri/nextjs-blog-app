@@ -25,3 +25,8 @@ export async function createNewCategoryApi(
   return http.post('/category/add', categoryData, options).then(({ data }) => data.data);
 }
 
+// *********** Delete category
+export async function deleteCategoryApi(categoryId: string, options?: AxiosRequestConfig) {
+  return http.delete(`/category/remove/${categoryId}`, options).then(({ data }) => data.data);
+}
+
