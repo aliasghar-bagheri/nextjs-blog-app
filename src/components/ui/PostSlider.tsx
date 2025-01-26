@@ -45,7 +45,7 @@ const PostSlider = ({ posts, autoplayDelay = 6000 }: PostSlider) => {
             <SwiperSlide key={post._id}>
               <div className="relative w-full h-72 md:h-96 lg:h-[550px] overflow-hidden p-5 md:p-7 lg:p-11">
                 <Image
-                  src={post.coverImage}
+                  src={post.coverImageUrl}
                   fill
                   className="object-cover rounded-2xl -z-10"
                   alt={post.title}
