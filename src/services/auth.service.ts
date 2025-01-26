@@ -22,3 +22,11 @@ export async function signOutApi() {
 export async function updateAvatar(data: FormData | File | string, options?: AxiosRequestConfig) {
   return http.post('/user/upload-avatar', data, options).then(({ data }) => data.data);
 }
+
+// *********** Update information user
+export async function updateProfile(
+  data: { name: string; email: string },
+  options?: AxiosRequestConfig
+) {
+  return http.patch('/user/update', data, options).then(({ data }) => data.data);
+}
