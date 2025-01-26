@@ -30,3 +30,10 @@ export async function deleteCategoryApi(categoryId: string, options?: AxiosReque
   return http.delete(`/category/remove/${categoryId}`, options).then(({ data }) => data.data);
 }
 
+// *********** Edit category
+export async function editCategoryApi(
+  { categoryId, data }: { categoryId: string; data: CategorySchemaType },
+  options?: AxiosRequestConfig
+) {
+  return http.patch(`/category/update/${categoryId}`, data, options).then(({ data }) => data.data);
+}
