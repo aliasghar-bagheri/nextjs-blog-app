@@ -9,6 +9,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { IPost } from '@/types';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import { toPersianNumber } from '@/utils/numberFormatter';
+import Link from 'next/link';
 
 export interface PostSlider {
   posts: IPost[];
@@ -64,9 +65,11 @@ const PostSlider = ({ posts, autoplayDelay = 6000 }: PostSlider) => {
                 </div>
               </div>
               <div className="w-10/12 shadow sm:w-8/12 mx-auto lg:w-7/12 py-5 lg:py-8 space-y-4 rounded-3xl px-3 border border-secondary-200 -mt-14 lg:-mt-20 backdrop-blur-xl bg-background z-10 text-center">
-                <h2 className="font-bold text-sm sm:text-lg md:text-xl lg:text-3xl line-clamp-1 text-secondary-900 hover:text-primary transition-colors">
-                  {post.title}
-                </h2>
+                <Link href={`/blogs/${post.slug}`}>
+                  <h2 className="font-bold text-sm sm:text-lg md:text-xl lg:text-3xl line-clamp-1 text-secondary-900 hover:text-primary transition-colors">
+                    {post.title}
+                  </h2>
+                </Link>
                 <p className="line-clamp-1 text-xs">{post.briefText}</p>
               </div>
             </SwiperSlide>
