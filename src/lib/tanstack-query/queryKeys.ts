@@ -7,4 +7,5 @@ export enum QUERY_KEYS {
   DELETE_COMMENT = 'delete_comment',
   CREATE_NEW_CATEGORY = 'create_new_category',
   DELETE_CATEGORY = 'delete_category',
+  EDIT_CATEGORY = 'edit_category',
 }
