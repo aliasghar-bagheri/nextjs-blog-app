@@ -17,3 +17,8 @@ export async function getUserApi(options?: AxiosRequestConfig) {
 export async function signOutApi() {
   return await http.post('/user/logout').then(({ data }) => data);
 }
+
+// *********** Update avatar user
+export async function updateAvatar(data: FormData | File | string, options?: AxiosRequestConfig) {
+  return http.post('/user/upload-avatar', data, options).then(({ data }) => data.data);
+}
