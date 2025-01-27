@@ -23,7 +23,10 @@ export default async function PostContainer({
           <b>{toPersianNumber(posts.length)}</b> نتیجه بر اساس جستجو: <b>{searchParams.search}</b>
         </p>
       )}
-      <PostList posts={posts} />
+      <PostList
+        posts={posts}
+        className="grid justify-center grid-cols-1 mx-auto sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5"
+      />
     </div>
   );
 }

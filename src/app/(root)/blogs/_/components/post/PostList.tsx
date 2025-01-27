@@ -2,9 +2,15 @@ import { IPost } from '@/types';
 import PostItem from './PostItem';
 import { ExclamationCircleIcon } from '@heroicons/react/24/outline';
 
-export default function PostList({ posts }: { posts: IPost[] | null | undefined }) {
+export default function PostList({
+  posts,
+  className = '',
+}: {
+  posts: IPost[] | null | undefined;
+  className?: string;
+}) {
   return (
-    <div className="grid justify-center grid-cols-1 mx-auto sm:grid-cols-2 xl:grid-cols-3 gap-5">
+    <div className={className}>
       {posts && posts.length > 0 ? (
         posts.map((post) => (
           <PostItem

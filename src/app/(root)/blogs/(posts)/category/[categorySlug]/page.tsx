@@ -37,5 +37,10 @@ export default async function CategoryPage({
 
   const { posts } = await getAllPosts(queries);
 
-  return <PostList posts={posts} />;
+  return (
+    <PostList
+      posts={posts}
+      className="grid justify-center grid-cols-1 mx-auto sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5"
+    />
+  );
 }
