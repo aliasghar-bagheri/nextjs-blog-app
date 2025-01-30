@@ -3,6 +3,7 @@
 import Avatar from '@/components/ui/Avatar';
 import Button from '@/components/ui/Button';
 import { useAuth } from '@/context/AuthContext';
+import ThemeToggler from '@/context/theme/ThemeToggler';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -33,24 +34,26 @@ export default function Header() {
             دیجی نیوز
           </p>
         </Link>
-
-        {isAuthenticated && user?._id ? (
-          <Link href="/profile">
-            <Avatar
-              src={user.avatarUrl || '/assets/images/user-placeholder.svg'}
-              alt={user.name}
-            />
-          </Link>
-        ) : (
-          <div className="flex items-center gap-x-2">
-            <Link href="/auth/sign-in">
-              <Button>ورود</Button>
+        <div className="flex items-center gap-x-5">
+          <ThemeToggler />
+          {isAuthenticated && user?._id ? (
+            <Link href="/profile">
+              <Avatar
+                src={user.avatar || '/assets/images/user-placeholder.svg'}
+                alt={user.name}
+              />
             </Link>
-            <Link href="/auth/sign-up">
-              <Button variant="primary">ثبت نام</Button>
-            </Link>
-          </div>
-        )}
+          ) : (
+            <div className="flex items-center gap-x-2">
+              <Link href="/auth/sign-in">
+                <Button>ورود</Button>
+              </Link>
+              <Link href="/auth/sign-up">
+                <Button variant="primary">ثبت نام</Button>
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

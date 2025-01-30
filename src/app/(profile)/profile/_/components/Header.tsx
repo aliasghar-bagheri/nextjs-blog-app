@@ -9,6 +9,7 @@ import { BellIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { useState } from 'react';
 import Sidebar from './Sidebar';
+import ThemeToggler from '@/context/theme/ThemeToggler';
 
 export default function Header() {
   const { user, isPending } = useAuth();
@@ -29,6 +30,7 @@ export default function Header() {
       </ButtonIcon>
       <h4 className="text-xl font-semibold hidden sm:block">خوش آمدی {user?.name} عزیز 👋</h4>
       <div className="flex items-center gap-x-5">
+        <ThemeToggler />
         <BellIcon
           width={25}
           height={25}
