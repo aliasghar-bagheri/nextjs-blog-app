@@ -1,9 +1,10 @@
 'use client';
 
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import ButtonIcon from './ButtonIcon';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import { useClickOutside } from '@/hooks/useClickOutside';
 
 interface DrawerProps {
   open: boolean;
@@ -13,6 +14,10 @@ interface DrawerProps {
 
 export default function Drawer({ open, onClose, children }: DrawerProps) {
   const [isClient, setIsClient] = useState(false);
+
+  const drawerContentRef = useRef<HTMLDivElement>(null);
+
+  useClickOutside(drawerContentRef, onClose);
 
   useEffect(() => {
     setIsClient(true);
@@ -28,6 +33,7 @@ export default function Drawer({ open, onClose, children }: DrawerProps) {
         {/* Drawer content */}
         <div
           role="dialog"
+          ref={drawerContentRef}
           className="absolute top-0 right-0 w-full max-w-80 bg-secondary-0 h-full p-7 z-50 space-y-8 flex animate-fade-in-right flex-col shadow-lg"
         >
           {/* Close button */}
