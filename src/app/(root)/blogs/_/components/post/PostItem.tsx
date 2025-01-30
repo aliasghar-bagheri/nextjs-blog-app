@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { IPost } from '@/types';
 import PostCover from './PostCover';
 import Author from './Author';
+import PostInteraction from './PostInteraction';
 
 export default function PostItem(post: IPost) {
   const { slug, coverImageUrl, title, text, author, category, createdAt } = post;
@@ -37,6 +38,7 @@ export default function PostItem(post: IPost) {
           </div>
         </Link>
       </div>
+      <PostInteraction {...post} />
     </article>
   );
 }

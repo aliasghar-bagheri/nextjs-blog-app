@@ -3,6 +3,8 @@ import { IPost } from '@/types';
 import PostList from './PostList';
 import queryString from 'query-string';
 import { toPersianNumber } from '@/utils/numberFormatter';
+import { cookies } from 'next/headers';
+import setCookieOnReq from '@/utils/setCookieOnReq';
 
 export default async function PostContainer({
   searchParams,
@@ -10,8 +12,9 @@ export default async function PostContainer({
   searchParams: { [key: string]: string };
 }) {
   const queries = queryString.stringify(searchParams);
-
-  const { posts } = (await getAllPosts(queries)) as {
+  const cookie = cookies();
+  const options = setCookieOnReq(cookie);
+  const { posts } = (await getAllPosts(queries, options)) as {
     posts: IPost[];
     totalPages: number;
   };
