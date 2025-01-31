@@ -5,7 +5,7 @@ import Author from './Author';
 import PostInteraction from './PostInteraction';
 
 export default function PostItem(post: IPost) {
-  const { slug, coverImageUrl, title, text, author, category, createdAt } = post;
+  const { slug, coverImageUrl, title, briefText, author, category, createdAt } = post;
 
   return (
     <article className="flex-1 space-y-4">
@@ -23,7 +23,7 @@ export default function PostItem(post: IPost) {
             {title}
           </h4>
         </Link>
-        <p className="line-clamp-3">{text}</p>
+        <p className="line-clamp-3">{briefText}</p>
       </div>
 
       <div className="flex items-center justify-between gap-x-3">
