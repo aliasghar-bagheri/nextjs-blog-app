@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-150;
   }
   :root {
     --background: 210 25% 98%;
@@ -98,7 +98,7 @@
   }
 
   .btn-outline {
-    @apply bg-primary-100 text-primary hover:bg-primary-100/70 dark:bg-primary-800 dark:text-primary-200 dark:hover:bg-primary-800/70;
+    @apply bg-transparent border border-primary/50 text-primary hover:bg-primary hover:text-white dark:text-primary-400 dark:hover:text-primary-200 dark:hover:bg-primary/60;
   }
   .inputField {
     @apply py-2 px-3 bg-secondary-200 placeholder:text-secondary-500 placeholder:text-sm rounded outline-none focus-visible:ring-2 focus-visible:ring-offset-0 focus-visible:ring-primary transition-all disabled:opacity-50 disabled:cursor-not-allowed;
@@ -122,7 +122,7 @@
     @apply bg-success text-white;
   }
   .badge-error {
-    @apply bg-error;
+    @apply bg-error dark:bg-red-600 text-white;
   }
   .badge-warning {
     @apply bg-warning text-black/80;

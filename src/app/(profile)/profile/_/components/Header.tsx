@@ -10,6 +10,7 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
 import { usePathname } from 'next/navigation';
+import ThemeToggler from '@/context/theme/ThemeToggler';
 
 export default function Header() {
   const { user, isPending } = useAuth();
@@ -36,6 +37,7 @@ export default function Header() {
       </ButtonIcon>
       <h4 className="text-xl font-semibold hidden sm:block">خوش آمدی {user?.name} عزیز 👋</h4>
       <div className="flex items-center gap-x-5">
+        <ThemeToggler />
         <BellIcon
           width={25}
           height={25}
