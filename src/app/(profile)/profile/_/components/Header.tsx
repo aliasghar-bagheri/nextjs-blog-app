@@ -30,7 +30,7 @@ export default function Header() {
     >
       <ButtonIcon
         onClick={() => setIsShowHeader(true)}
-        className="lg:hidden"
+        className="lg:invisible"
         variant="outline"
       >
         <Bars3BottomRightIcon />
