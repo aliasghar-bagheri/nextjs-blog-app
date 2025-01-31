@@ -4,7 +4,7 @@ import queryString from 'query-string';
 import { latestPostsTableColumns } from './columns';
 
 export default async function LatestPosts() {
-  const query = queryString.stringify({ limit: 10 });
+  const query = queryString.stringify({ limit: 5 });
   const { posts } = await getAllPosts(query);
 
   return (
