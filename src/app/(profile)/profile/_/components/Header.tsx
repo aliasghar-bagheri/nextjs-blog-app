@@ -7,13 +7,20 @@ import { useAuth } from '@/context/AuthContext';
 import { Bars3BottomRightIcon } from '@heroicons/react/24/outline';
 import { BellIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Sidebar from './Sidebar';
+import { usePathname } from 'next/navigation';
 import ThemeToggler from '@/context/theme/ThemeToggler';
 
 export default function Header() {
   const { user, isPending } = useAuth();
   const [isShowHeader, setIsShowHeader] = useState(false);
+
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsShowHeader(false);
+  }, [pathname]);
 
   return (
     <header
@@ -23,7 +30,7 @@ export default function Header() {
     >
       <ButtonIcon
         onClick={() => setIsShowHeader(true)}
-        className="lg:hidden"
+        className="lg:invisible"
         variant="outline"
       >
         <Bars3BottomRightIcon />

@@ -7,8 +7,8 @@ import CommentTableActions from './CommentTableActions';
 
 export const allCommentsTableColumns: DataTableColumn<IComment>[] = [
   {
-    label: 'پست',
-    key: 'post',
+    label: 'متن',
+    key: 'content',
     render: (comment) => <p>{comment.content.text}</p>,
   },
   {

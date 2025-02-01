@@ -70,7 +70,7 @@
 
 @layer components {
   .btn {
-    @apply py-2 px-4 transition-colors cursor-pointer rounded disabled:opacity-50 disabled:pointer-events-none outline-none text-nowrap active:scale-[.98];
+    @apply py-2 px-4 cursor-pointer [&>svg]:w-5 [&>svg]:h-5 has-[svg]:flex has-[svg]:items-center transition-all duration-200 has-[svg]:gap-2 rounded disabled:opacity-50 disabled:pointer-events-none outline-none text-nowrap active:scale-[.98];
   }
 
   .btn-default {

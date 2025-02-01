@@ -8,16 +8,16 @@ export default async function createNewCommentApi(data: INewComment, options?: A
 }
 
 // *********** Get all comments
-export async function getAllComments(options?: AxiosRequestConfig) {
+export async function getAllComments(queries?: string, options?: AxiosRequestConfig) {
   try {
-    const { data } = await http.get('/comment/list', options);
+    const { data } = await http.get(`/comment/list?${queries}`, options);
 
-    const { comments, commentsCount } = data.data || {};
+    const { comments, commentsCount, totalPages } = data.data || {};
 
-    return { comments, commentsCount };
+    return { comments, commentsCount, totalPages };
   } catch (error) {
     console.log(error);
-    return { comments: [], commentsCount: 0 };
+    return { comments: [], commentsCount: 0, totalPages: 0 };
   }
 }
 

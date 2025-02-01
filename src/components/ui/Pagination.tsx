@@ -25,11 +25,11 @@ interface IPaginationArrowProps {
   isHidden?: boolean;
 }
 
-export default function Pagination({ totalPages }: { totalPages: number }) {
+export default function Pagination({ totalPages, limit }: { totalPages: number; limit?: number }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const currentPage = Number(searchParams.get('page')) || 1;
-  const itemPerPage = Number(searchParams.get('limit')) || 10;
+  const itemPerPage = limit || Number(searchParams.get('limit')) || 10;
 
   const createPageUrl = (pageNumber: number | string) => {
     const params = new URLSearchParams(searchParams);

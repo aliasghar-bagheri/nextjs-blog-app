@@ -18,7 +18,7 @@ export default async function AllPostsPage({
   searchParams: Promise<{ [key: string]: string }>;
 }) {
   const params = await searchParams;
-  const queries = queryString.stringify(params);
+  const queries = queryString.stringify({ limit: 8, ...params });
 
   return (
     <div className="w-full space-y-10">

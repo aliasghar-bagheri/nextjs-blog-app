@@ -4,7 +4,6 @@ import Button from '@/components/ui/Button';
 import ImageDropzone from '@/components/ui/ImageDropzone';
 import Label from '@/components/ui/Label';
 import RHFSelect from '@/components/ui/RHFSelect';
-import RHFTextarea from '@/components/ui/RHFTextarea';
 import RHFTextField from '@/components/ui/RHFTextField';
 import { useGetCategories } from '@/hooks/useGetCategories';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -15,6 +14,7 @@ import { postSchema, PostSchemaType } from '@/lib/validations/post/post.schema';
 import { useEditPost } from '../hooks/useEditPost';
 import { IPost } from '@/types';
 import SpinnerMini from '@/components/ui/SpinnerMini';
+import RHFMarkdownPreview from '@/components/ui/RHFMarkdownPreview';
 
 type PostFormProps = { type: 'CREATE' } | { type: 'UPDATE'; initialData: IPost };
 
@@ -42,6 +42,7 @@ export default function PostForm(param: PostFormProps) {
     handleSubmit,
     control,
     reset,
+    watch,
     formState: { errors, isValid },
   } = useForm<PostSchemaType>({
     resolver: zodResolver(postSchema),
@@ -97,36 +98,8 @@ export default function PostForm(param: PostFormProps) {
         onSubmit={handleSubmit(onSubmitPostForm)}
         className="space-y-4"
       >
-        <div className="flex lg:flex-row-reverse flex-col gap-6">
-          <div className="flex-1 ">
-            <Controller
-              name="coverImage"
-              rules={{ required: 'کاور پست الزامی است' }}
-              control={control}
-              render={({ field }) => {
-                return (
-                  <div className="space-y-3 w-full max-w-lg">
-                    <Label htmlFor="coverImage">
-                      کاور پست
-                      <span className="text-error ltr:ml-2 rtl:mr-2">*</span>
-                    </Label>
-                    <ImageDropzone
-                      imageUrl={typeof field.value === 'string' ? field.value : ''}
-                      name="coverImage"
-                      onBlur={field.onBlur}
-                      onChangeFile={field.onChange}
-                    />
-                    {errors.coverImage?.message && (
-                      <p className="text-error mt-3 text-sm">
-                        {errors.coverImage.message.toString()}
-                      </p>
-                    )}
-                  </div>
-                );
-              }}
-            />
-          </div>
-          <div className="flex-1 grid grid-cols-1 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-5">
+          <div>
             <RHFTextField
               label="عنوان"
               name="title"
@@ -188,24 +161,58 @@ export default function PostForm(param: PostFormProps) {
               valueAsNumber
               isRequired
             />
-            <RHFTextarea
-              label="متن"
-              name="text"
-              register={register}
+          </div>
+          <div>
+            <Controller
+              name="coverImage"
+              rules={{ required: 'کاور پست الزامی است' }}
+              control={control}
+              render={({ field }) => {
+                return (
+                  <div className="space-y-3 w-full max-w-lg">
+                    <Label htmlFor="coverImage">
+                      کاور پست
+                      <span className="text-error ltr:ml-2 rtl:mr-2">*</span>
+                    </Label>
+                    <ImageDropzone
+                      imageUrl={typeof field.value === 'string' ? field.value : ''}
+                      name="coverImage"
+                      onBlur={field.onBlur}
+                      onChangeFile={field.onChange}
+                    />
+                    {errors.coverImage?.message && (
+                      <p className="text-error mt-3 text-sm">
+                        {errors.coverImage.message.toString()}
+                      </p>
+                    )}
+                  </div>
+                );
+              }}
+            />
+          </div>
+
+          <div className="col-span-full space-y-3">
+            <RHFMarkdownPreview
               errors={errors}
+              label="متن"
+              value={watch('text')}
+              register={register}
+              name="text"
               isRequired
             />
           </div>
         </div>
 
-        <Button
-          disabled={!isValid || isCreating || isEdititng}
-          className="flex items-center gap-2"
-          variant="primary"
-        >
-          {(isCreating || isEdititng) && <SpinnerMini />}
-          {param.type === 'UPDATE' ? 'بروزرسانی' : 'ایجاد'}
-        </Button>
+        <div className="flex justify-end">
+          <Button
+            disabled={!isValid || isCreating || isEdititng}
+            className="flex items-center gap-2"
+            variant="primary"
+          >
+            {(isCreating || isEdititng) && <SpinnerMini />}
+            {param.type === 'UPDATE' ? 'بروزرسانی' : 'ایجاد'}
+          </Button>
+        </div>
       </form>
     </fieldset>
   );
