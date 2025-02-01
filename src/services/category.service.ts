@@ -7,13 +7,13 @@ export async function getAllCategory(queries?: string, options?: AxiosRequestCon
   try {
     const { data } = await http.get(`/category/list?${queries}`, options);
 
-    const { categories } = data.data || [];
+    const { categories, totalPages } = data.data || [];
 
-    return { categories };
+    return { categories, totalPages };
   } catch (error) {
     console.log(error);
 
-    return { categories: [] };
+    return { categories: [], totalPages: 0 };
   }
 }
 
