@@ -5,14 +5,14 @@ import Author from './Author';
 import PostInteraction from './PostInteraction';
 
 export default function PostItem(post: IPost) {
-  const { slug, coverImageUrl, title, briefText, author, category, createdAt } = post;
+  const { slug, coverImage, title, briefText, author, category, createdAt } = post;
 
   return (
     <article className="flex-1 space-y-4">
       <Link href={`/blogs/${slug}`}>
         <PostCover
           fill
-          src={coverImageUrl}
+          src={coverImage}
           className="hover:scale-110"
           alt="post cover"
         />
@@ -30,7 +30,7 @@ export default function PostItem(post: IPost) {
         <Author
           postCreationDate={createdAt}
           name={author.name}
-          avatarUrl={author.avatarUrl || '/assets/images/user-placeholder.svg'}
+          avatarUrl={author.avatar || '/assets/images/user-placeholder.svg'}
         />
         <Link href={`/blogs/category/${category.slug}`}>
           <div className="py-1.5 inline text-nowrap bg-primary-200/30 px-2 text-xs md:text-sm rounded text-primary dark:bg-primary-400/30 dark:text-primary-100 backdrop-blur-sm">

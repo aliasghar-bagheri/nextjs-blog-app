@@ -55,7 +55,7 @@ export default function PostCommentForm({
     <div className="rounded bg-secondary-0 border border-secondary-100 p-3 sm:p-5">
       <div className="flex items-center gap-3 mb-5">
         <Avatar
-          src={user?.avatarUrl || '/assets/images/user-placeholder.svg'}
+          src={user?.avatar || '/assets/images/user-placeholder.svg'}
           className="w-14 h-14"
           alt={user?.name || ''}
         />

@@ -39,7 +39,7 @@ export default function Header() {
           {isAuthenticated && user?._id ? (
             <Link href="/profile">
               <Avatar
-                src={user.avatarUrl || '/assets/images/user-placeholder.svg'}
+                src={user.avatar || '/assets/images/user-placeholder.svg'}
                 alt={user.name}
               />
             </Link>

@@ -26,7 +26,7 @@ export default function PostDescription(post: IPost) {
         </div>
         <Author
           name={author.name}
-          avatarUrl={author.avatarUrl || '/assets/images/user-placeholder.svg'}
+          avatarUrl={author.avatar || '/assets/images/user-placeholder.svg'}
         />
 
         <div className="space-y-5 py-3">

@@ -45,7 +45,7 @@ export default async function BlogDetailsPage({ params }: { params: Promise<{ sl
           <div className="space-y-7 pb-5">
             <PostCover
               fill
-              src={post.coverImageUrl}
+              src={post.coverImage}
               containerClassName="h-72 sm:h-[500px]"
               alt={post.title}
             />

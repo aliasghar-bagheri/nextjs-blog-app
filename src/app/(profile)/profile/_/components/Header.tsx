@@ -43,7 +43,7 @@ export default function Header() {
           height={25}
         />
         <Avatar
-          src={user?.avatarUrl || '/assets/images/user-placeholder.svg'}
+          src={user?.avatar || '/assets/images/user-placeholder.svg'}
           alt={user?.name || ''}
         />
       </div>

@@ -51,7 +51,7 @@ export default function PostForm(param: PostFormProps) {
       type: initialData?.type || 'free',
       title: initialData?.title || '',
       briefText: initialData?.briefText || '',
-      coverImage: initialData?.coverImageUrl || '',
+      coverImage: initialData?.coverImage || '',
       text: initialData?.text || '',
       slug: initialData?.slug || '',
       readingTime: initialData?.readingTime || 0,

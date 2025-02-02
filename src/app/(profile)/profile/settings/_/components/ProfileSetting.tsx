@@ -13,7 +13,7 @@ export default async function ProfileSetting() {
   return (
     <div className="bg-secondary-0/70 drop-shadow max-w-md w-full px-3 sm:px-7 py-10 rounded flex flex-col gap-10">
       <h2 className="text-secondary-900 font-medium text-lg text-nowrap">اطلاعات حساب</h2>
-      <AvatarSettingForm avatarSrc={user.avatarUrl} />
+      <AvatarSettingForm avatarSrc={user.avatar} />
       <UserInfoForm initialData={user} />
     </div>
   );

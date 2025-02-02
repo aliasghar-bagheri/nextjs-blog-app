@@ -18,7 +18,7 @@ export default function PostCommentItem({
       <div className="flex items-center gap-x-3 justify-between">
         <div className="flex items-center gap-3 flex-wrap">
           <Author
-            avatarUrl={user.avatarUrl || '/assets/images/user-placeholder.svg'}
+            avatarUrl={user.avatar || '/assets/images/user-placeholder.svg'}
             name={user.name}
           />
           <span

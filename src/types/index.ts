@@ -6,6 +6,7 @@ export interface IUser {
   likedPosts: string[];
   avatar: string | null;
   avatarUrl: string | null;
+  avatarId: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -24,11 +25,11 @@ export type TPostType = 'free' | 'premium';
 
 export type TPostCategory = Pick<ICategory, '_id' | 'title' | 'slug'>;
 
-export type TPostAuthor = Pick<IUser, '_id' | 'name' | 'avatar' | 'avatarUrl'>;
+export type TPostAuthor = Pick<IUser, '_id' | 'name' | 'avatar' | 'avatar'>;
 
 export type TPostRelated = Pick<
   IPost,
-  '_id' | 'title' | 'slug' | 'category' | 'coverImage' | 'coverImageUrl' | 'author' | 'readingTime'
+  '_id' | 'title' | 'slug' | 'category' | 'coverImage' | 'coverImage' | 'author' | 'readingTime'
 >;
 
 export type TPostComment = {
@@ -66,7 +67,7 @@ export interface IPost {
   updatedAt: string;
 }
 
-export type TCommentAuthor = Pick<IUser, '_id' | 'name' | 'avatarUrl'>;
+export type TCommentAuthor = Pick<IUser, '_id' | 'name' | 'avatar'>;
 
 export interface IComment {
   _id: string;
