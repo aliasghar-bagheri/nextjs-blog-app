@@ -3,6 +3,8 @@ import DashboardCardList from './_/components/card/DashboardCardList';
 import { Skeleton, SkeletonDashboardCards } from '@/components/ui/Skeleton';
 import LatestPosts from './_/components/LatestPosts';
 
+export const dynamic = 'force-dynamic';
+
 export default function UserProfilePage() {
   return (
     <div className="w-full space-y-10">
