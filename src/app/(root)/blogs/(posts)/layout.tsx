@@ -6,7 +6,7 @@ import { Skeleton } from '@/components/ui/Skeleton';
 
 export default function BlogsLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="py-20 space-y-4">
+    <div className="py-10 sm:py-20 space-y-4">
       <div className="flex flex-col-reverse lg:flex-row items-start justify-start gap-5">
         <Suspense
           fallback={

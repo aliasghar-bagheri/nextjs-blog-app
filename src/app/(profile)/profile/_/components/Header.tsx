@@ -24,9 +24,12 @@ export default function Header() {
 
   return (
     <header
-      className={clsx('w-full flex items-center justify-between p-6 transition-all duration-300', {
-        'blur-md': isPending,
-      })}
+      className={clsx(
+        'w-full flex max-h-screen items-center justify-between p-6 transition-all duration-300',
+        {
+          'blur-md': isPending,
+        }
+      )}
     >
       <ButtonIcon
         onClick={() => setIsShowHeader(true)}
@@ -51,9 +54,7 @@ export default function Header() {
         open={isShowHeader}
         onClose={() => setIsShowHeader(false)}
       >
-        <div className="flex flex-col justify-between h-full">
-          <Sidebar />
-        </div>
+        <Sidebar />
       </Drawer>
     </header>
   );

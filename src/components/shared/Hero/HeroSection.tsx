@@ -35,8 +35,8 @@ export default function HeroSection() {
           fallback={
             <Skeleton
               width="100%"
-              height={550}
-              className="bg-secondary-200 rounded"
+              height="100%"
+              className="bg-secondary-200 h-80 md:h-[450px] rounded"
             />
           }
         >

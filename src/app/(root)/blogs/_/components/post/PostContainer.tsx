@@ -25,7 +25,10 @@ export default async function PostContainer({
     <div className="space-y-4">
       {searchParams?.search?.length > 0 && (
         <p>
-          <b>{toPersianNumber(posts.length)}</b> نتیجه بر اساس جستجو: <b>{searchParams.search}</b>
+          <b>{toPersianNumber(posts.length)}</b> نتیجه بر اساس جستجو:
+          <q>
+            <b>{searchParams.search}</b>
+          </q>
         </p>
       )}
       <PostList

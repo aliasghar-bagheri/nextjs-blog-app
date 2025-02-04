@@ -73,7 +73,7 @@ export default function PostForm(param: PostFormProps) {
         {
           onSuccess() {
             reset();
-            router.push('/profile/posts');
+            router.back();
           },
         }
       );
@@ -93,7 +93,10 @@ export default function PostForm(param: PostFormProps) {
   };
 
   return (
-    <fieldset className="w-full">
+    <fieldset
+      className="w-full"
+      disabled={isCreating || isEdititng}
+    >
       <form
         onSubmit={handleSubmit(onSubmitPostForm)}
         className="space-y-4"

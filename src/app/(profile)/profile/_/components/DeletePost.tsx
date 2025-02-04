@@ -8,16 +8,20 @@ import { TrashIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import { useDeletePost } from '../../posts/_/hooks/useDeletePost';
 import SpinnerMini from '@/components/ui/SpinnerMini';
+import { useRouter } from 'next/navigation';
 
 export default function DeletePost({ post }: { post: IPost }) {
   const [showModal, setShowModal] = useState(false);
 
   const { mutate: deletePost, isPending: isDeleting } = useDeletePost();
 
+  const router = useRouter();
+
   const handleDeletePost = async () => {
     deletePost(post._id, {
       onSuccess() {
         setShowModal(false);
+        router.refresh();
       },
     });
   };

@@ -22,7 +22,10 @@ const SignOutButton = ({ className }: SignOutButtonProps) => {
   return (
     <Button
       onClick={handleSignOut}
-      className={clsx('text-right flex items-center gap-x-2 text-red-500 py-3', className)}
+      className={clsx(
+        'text-right flex items-center gap-x-2 text-red-500 py-3 text-xs sm:text-base',
+        className
+      )}
       fullWidth
     >
       <ArrowRightEndOnRectangleIcon

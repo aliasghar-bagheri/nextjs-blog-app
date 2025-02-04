@@ -44,7 +44,7 @@ const AvatarUploader = forwardRef<HTMLInputElement, AvatarUploaderProps>(
     };
 
     return (
-      <div className="relative w-36 h-36">
+      <div className="relative w-32 h-32 sm:w-56 sm:h-56 lg:w-72 lg:h-72">
         <Image
           src={avatarSrc}
           fill
@@ -57,7 +57,7 @@ const AvatarUploader = forwardRef<HTMLInputElement, AvatarUploaderProps>(
           accept="image/*"
           id={id}
           ref={ref}
-          className="invisible pointer-events-none"
+          className="hidden"
           onChange={handleChangeAvatar}
           {...props}
         />
