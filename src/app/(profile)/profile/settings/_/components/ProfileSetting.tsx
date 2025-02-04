@@ -11,10 +11,12 @@ export default async function ProfileSetting() {
   const { user } = (await getUserApi(options)) as { user: IUser };
 
   return (
-    <div className="bg-secondary-0/70 drop-shadow max-w-md w-full px-3 sm:px-7 py-10 rounded flex flex-col gap-10">
+    <div className="bg-secondary-0/70 relative drop-shadow px-3 sm:px-7 py-10 rounded flex flex-col gap-10">
       <h2 className="text-secondary-900 font-medium text-lg text-nowrap">اطلاعات حساب</h2>
-      <AvatarSettingForm avatarSrc={user.avatarUrl} />
-      <UserInfoForm initialData={user} />
+      <div className="space-y-8">
+        <AvatarSettingForm avatarSrc={user.avatarUrl} />
+        <UserInfoForm initialData={user} />
+      </div>
     </div>
   );
 }

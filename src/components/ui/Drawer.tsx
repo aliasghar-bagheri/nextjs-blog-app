@@ -34,7 +34,7 @@ export default function Drawer({ open, onClose, children }: DrawerProps) {
         <div
           role="dialog"
           ref={drawerContentRef}
-          className="absolute top-0 right-0 w-full max-w-80 bg-secondary-0 h-full p-7 z-50 space-y-8 flex animate-fade-in-right flex-col shadow-lg"
+          className="absolute top-0 right-0 w-full max-w-64 sm:max-w-80 overflow-y-auto bg-secondary-0 h-screen p-7 z-50 space-y-8 flex animate-fade-in-right flex-col shadow-lg"
         >
           {/* Close button */}
           <div>
@@ -46,7 +46,7 @@ export default function Drawer({ open, onClose, children }: DrawerProps) {
             </ButtonIcon>
           </div>
 
-          <div className="flex-1">{children}</div>
+          <div className="mt-auto h-full">{children}</div>
         </div>
       </>,
       document.body

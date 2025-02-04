@@ -28,33 +28,31 @@ export default function UserInfoForm({ initialData }: { initialData: IUser }) {
   }, [state]);
 
   return (
-    <div className="space-y-7">
-      <form
-        action={formAction}
-        className="space-y-3"
-      >
-        <div className="space-y-3">
-          <Label htmlFor="name">نام</Label>
-          <Input
-            type="text"
-            name="name"
-            id="name"
-            className="block w-full"
-            defaultValue={initialData.name}
-          />
-        </div>
-        <div className="space-y-3">
-          <Label htmlFor="email">ایمیل</Label>
-          <Input
-            type="email"
-            name="email"
-            id="email"
-            className="block w-full"
-            defaultValue={initialData.email}
-          />
-        </div>
-        <SubmitButton variant="primary">بروزرسانی</SubmitButton>
-      </form>
-    </div>
+    <form
+      action={formAction}
+      className="space-y-3 max-w-md w-full mx-auto"
+    >
+      <div className="space-y-3">
+        <Label htmlFor="name">نام</Label>
+        <Input
+          type="text"
+          name="name"
+          id="name"
+          className="block w-full"
+          defaultValue={initialData.name}
+        />
+      </div>
+      <div className="space-y-3">
+        <Label htmlFor="email">ایمیل</Label>
+        <Input
+          type="email"
+          name="email"
+          id="email"
+          className="block w-full"
+          defaultValue={initialData.email}
+        />
+      </div>
+      <SubmitButton variant="primary">بروزرسانی</SubmitButton>
+    </form>
   );
 }

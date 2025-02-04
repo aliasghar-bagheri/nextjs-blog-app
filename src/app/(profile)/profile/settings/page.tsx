@@ -6,9 +6,7 @@ export default function ProfileSettingsPage() {
       <div className="flex flex-wrap items-center justify-between gap-5">
         <h2 className="text-secondary-900 font-medium text-xl text-nowrap">تنظیمات پروفایل</h2>
       </div>
-      <div className="flex justify-center">
-        <ProfileSetting />
-      </div>
+      <ProfileSetting />
     </div>
   );
 }

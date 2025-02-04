@@ -5,6 +5,7 @@ import { getAllCategory } from '@/services/category.service';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { ICategory } from '@/types';
+import { toPersianNumber } from '@/utils/numberFormatter';
 
 export async function generateMetadata({
   params,
@@ -37,10 +38,22 @@ export default async function CategoryPage({
 
   const { posts } = await getAllPosts(queries);
 
+  const { search } = await searchParams;
+
   return (
-    <PostList
-      posts={posts}
-      className="grid justify-center grid-cols-1 mx-auto sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5"
-    />
+    <div className="space-y-4">
+      {search && (
+        <p>
+          {toPersianNumber(posts.length)} نتیجه در این <b>دسته بندی</b> بر اساس جستجو :
+          <q>
+            <b>{search}</b>
+          </q>
+        </p>
+      )}
+      <PostList
+        posts={posts}
+        className="grid justify-center grid-cols-1 mx-auto sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5"
+      />
+    </div>
   );
 }

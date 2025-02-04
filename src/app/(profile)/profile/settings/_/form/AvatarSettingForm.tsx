@@ -38,13 +38,14 @@ export default function AvatarSettingForm({ avatarSrc }: { avatarSrc: string | n
         src={avatarSrc || '/assets/images/user-placeholder.svg'}
         handleChange={(file) => setFileExist(file)}
       />
-      <SubmitButton
-        disabled={!fileExist}
-        type="submit"
-        variant="primary"
-      >
-        اعمال
-      </SubmitButton>
+      {fileExist && (
+        <SubmitButton
+          type="submit"
+          variant="primary"
+        >
+          اعمال
+        </SubmitButton>
+      )}
     </form>
   );
 }
