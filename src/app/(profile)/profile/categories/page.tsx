@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import { Suspense } from 'react';
 import AddCategory from './_/components/AddCategory';
 import CategoriesTable from './_/components/CategoriesTable';
+import Search from '@/components/ui/Search';
 
 export default async function CategoriesPage({
   searchParams,
@@ -19,6 +20,7 @@ export default async function CategoriesPage({
         <AddCategory />
       </div>
       <div className="xl:container space-y-3">
+        <Search className="max-w-96 w-full" />
         <Suspense
           fallback={
             <Skeleton
