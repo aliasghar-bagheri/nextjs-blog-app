@@ -27,7 +27,7 @@ export default function Footer() {
         ))}
         <div className="flex-1 text-nowrap">
           <h5 className="text-secondary-900 font-bold text-lg">
-            برای اطلاع از آخرین اخبار عضو شوید{' '}
+            برای اطلاع از آخرین اخبار عضو شوید
           </h5>
           <div className="space-y-10">
             <div className="flex items-center gap-1 mt-3">
@@ -57,8 +57,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="w-full text-center p-3 bg-primary">
-        <p className="text-white font-semibold text-base">
-          © کلیه حقوق مادی و معنوی دوره ها متعلق به این دیجی نیوز می باشد.
+        <p className="text-white font-semibold text-xs sm:text-base">
+          © کلیه حقوق مادی و معنوی دوره ها متعلق به دیجی نیوز می باشد.
         </p>
       </div>
     </footer>
